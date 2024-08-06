@@ -1,11 +1,17 @@
 from flask import Flask
 
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
 
-@app.route("/")
-def index():
-    return "<p>Index page</p>"
+    from routes.views import views
+    from routes.auth import auth
 
-@app.route("profile")
-def profile():
-    return "<p>Profile page</p>"
+    app.register_blueprint(views, url_prefix="/")
+    app.register_blueprint(auth, url_prefix="/")
+
+    return app
+
+app = create_app()
+
+if __name__ == "__main__":
+    app.run(debug=True)
