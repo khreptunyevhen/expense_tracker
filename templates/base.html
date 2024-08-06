@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>{% block title %}Tr.Exp{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    <header>
+        <h1>Expense Tracker</h1>
+    </header>
+    <main>
+        <p>Tr.Exp</p>
+        <p>Manage your expenses</p>
+        <a href="{{ url_for('auth.login') }}">Login!</a>
+    </main>
+    <footer>
+        <p>Enjoy! © Yevhen Khreptun</p>
+    </footer>
+    {% endblock %}
+</body>
+</html>
