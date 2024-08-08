@@ -7,10 +7,25 @@
     <title>{% block title %}Tr.Exp{% endblock %}</title>
 </head>
 <body>
-    {% block content %}
+    {% block header %}
     <header>
         <h1>Expense Tracker</h1>
     </header>
+    {% endblock %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == "error" %}
+                    <p class="red">{{ message }}</p>
+                {% else %}
+                    <p class="green">{{ message }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}
     <main>
         <p>Tr.Exp</p>
         <p>Manage your expenses</p>

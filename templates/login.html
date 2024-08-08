@@ -2,25 +2,30 @@
 
 {% block title %}Login{% endblock %}
 
+{% block header %}
+<header>
+    <h2>Welcome to the Expense Tracker</h2>
+</header>
+{% endblock %}
+
 {% block content %}
-<h2>Welcome to the Expense Tracker</h2>
 
 {% block login_title %}Please log in into your account{% endblock %}
 
-<form action="get">
-    <label for="name">
-        <p>Name</p>
-        <input type="text" id="name">
+<form method="POST">
+    <label for="email">
+        <p>Email</p>
+        <input type="email" id="email" name="email">
     </label>
     <label for="password">
         <p>Password</p>
-        <input type="password" id="password">
+        <input type="password" id="password" name="password">
     </label>
-    <label for="name">
+    <!-- <label for="name">
         <p>Show password</p>
         <input type="checkbox">
-    </label>
-    <input type="submit" placeholder="Login">
+    </label> -->
+    <button type="submit">Login</button>
 </form>
 <div>
     <p>Don't have an account?</p>
